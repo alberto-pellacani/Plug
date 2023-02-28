@@ -49,3 +49,16 @@ CREATE TABLE user_tenant (
     constraint user_tenant_pk primary key (user_id, tenant_id)
 
 );
+
+
+-- traduzioni
+CREATE TABLE tran_md (
+    tran_tenant     int not null,               -- tenant 0 per global
+    tran_cluster    varchar(32) not null,       -- cluster lingua
+    tran_code       varchar(32) not null,       -- codice lable
+    tran_lang       char(2) not null,           -- codice lingua es it, en
+    tran_locale     char(2) not null,           -- codice localizzazione es us, gb oppure * per tutte
+    tran_text       varchar,                    -- testo della traduzione
+
+    CONSTRAINT tran_md_pk PRIMARY KEY (tran_tenant, ran_cluster, tran_code, tran_lang, tran_locale)
+);
